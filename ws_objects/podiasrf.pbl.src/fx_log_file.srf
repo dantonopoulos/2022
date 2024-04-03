@@ -1,0 +1,21 @@
+﻿$PBExportHeader$fx_log_file.srf
+global type fx_log_file from function_object
+end type
+
+forward prototypes
+global function integer fx_log_file (string line, long li_log_level)
+end prototypes
+
+global function integer fx_log_file (string line, long li_log_level);if li_log_level > gi_log_level then return 0 
+long fl,err
+string fullfilename
+fullfilename = GS_currentpath + '\' + gs_filename 
+fl = fileopen(fullfilename,LineMode! ,Write! ,LockReadWrite!,Append!,EncodingANSI!)
+if fl = -1 then return -1
+line = String(Today(), "yyyy/mm/dd hh:mm:ss") + '  ' + line
+err = filewrite(fl,line)
+fileclose(fl)
+
+return 0
+end function
+

@@ -1,0 +1,69 @@
+﻿$PBExportHeader$fx_encrypt_param.srf
+global type fx_encrypt_param from function_object
+end type
+
+forward prototypes
+global function string fx_encrypt_param (string param, integer operation)
+end prototypes
+
+global function string fx_encrypt_param (string param, integer operation);SymmetricAlgorithm 	algorithm
+Blob						key
+OperationMode			mode
+Blob						iv
+PaddingScheme		padding
+blob				lblb_data, lblb_processed
+String				ls_data
+Long				ll_len
+CrypterObject 	crypto
+CoderObject 	co
+
+if len(param) = 0 then return param
+
+//Operation flag 1 ==> encrypt, -1 ==> decrypt
+
+algorithm = AES!
+
+//key = Blob ( Fill ( '0123456789', 128/8 ) ,  EncodingUTF8! )
+key = blob('2106842231015233' ,  EncodingUTF8! )
+
+iv = Blob ( Fill ( '0', 16 ),  EncodingUTF8! )
+//iv = Blob (Fill ( '0', 50 ),  EncodingUTF8! )
+
+
+mode = OperationModeECB!
+//mode = OperationModeCBC!
+//mode = OperationModeCFB!
+//mode = OperationModeOFB!
+//mode = OperationModeCTR!
+
+
+//padding = NoPadding!
+//padding = ZerosPadding!
+//padding = PKCSPadding!
+//padding = OneAndZerosPadding!
+padding = DefaultPadding!
+
+
+crypto = Create CrypterObject
+co = Create CoderObject
+if operation = 1 then
+	lblb_data = Blob ( param, EncodingUTF8! )
+	lblb_processed = crypto.SymmetricEncrypt( algorithm, lblb_data, key, mode, iv, padding )
+	ls_data = co.base64encode( lblb_processed )
+end if
+if operation = -1 then
+	lblb_data = co.base64decode(param )
+	lblb_processed = crypto.SymmetricDecrypt( algorithm, lblb_data, key, mode, iv, padding )
+	ls_data = string(lblb_processed, EncodingUTF8!)
+end if
+
+
+Destroy crypto
+Destroy co
+
+
+
+
+return ls_data
+end function
+

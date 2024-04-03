@@ -1,0 +1,38 @@
+2024/04/03 14:34:36  *************************************************************
+2024/04/03 14:34:36  opening App
+2024/04/03 14:34:36  Username:sa
+2024/04/03 14:34:36  Cannot Connect to DatabaseLogin failed.
+2024/04/03 14:34:36  Connection:-1
+2024/04/03 14:34:36  Connected DB:
+2024/04/03 14:34:36  Log level:6
+2024/04/03 14:34:36  Error! Procedure sj_message with params 1,0 returned no values!!!
+2024/04/03 15:20:58  *************************************************************
+2024/04/03 15:20:58  opening App
+2024/04/03 15:20:58  Username:sa
+2024/04/03 15:20:58  Cannot Connect to DatabaseLogin failed.
+2024/04/03 15:20:58  Connection:-1
+2024/04/03 15:20:58  Connected DB:
+2024/04/03 15:20:58  Log level:6
+2024/04/03 15:20:58  Error! Procedure sj_message with params 1,0 returned no values!!!
+2024/04/03 15:25:34  *************************************************************
+2024/04/03 15:25:43  opening App
+2024/04/03 15:25:43  Username:sa
+2024/04/03 15:28:11  Cannot Connect to DatabaseLogin failed.
+2024/04/03 15:28:11  Connection:-1
+2024/04/03 15:28:11  Connected DB:
+2024/04/03 15:28:11  Log level:6
+2024/04/03 15:28:11  Error! Procedure sj_message with params 1,0 returned no values!!!
+2024/04/03 15:28:19  *************************************************************
+2024/04/03 15:28:19  opening App
+2024/04/03 15:28:19  Username:sa
+2024/04/03 15:28:19  Connection:0
+2024/04/03 15:28:19  Connected DB:bright
+2024/04/03 15:28:19  Log level:6
+2024/04/03 15:28:19  Error! Procedure sj_message with params 1,0 returned no values!!!
+2024/04/03 17:38:44  *************************************************************
+2024/04/03 17:38:44  opening App
+2024/04/03 17:38:44  Username:sa
+2024/04/03 17:39:05  Cannot Connect to Databasect_connect(): network packet layer: internal net library error: Net-Lib protocol driver call to connect two endpoints failed
+2024/04/03 17:39:05  Connection:-1
+2024/04/03 17:39:05  Connected DB:
+2024/04/03 17:39:05  Log level:6

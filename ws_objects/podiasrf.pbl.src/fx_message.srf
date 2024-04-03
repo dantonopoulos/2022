@@ -1,0 +1,26 @@
+﻿$PBExportHeader$fx_message.srf
+global type fx_message from function_object
+end type
+
+forward prototypes
+global function integer fx_message (integer when)
+end prototypes
+
+global function integer fx_message (integer when);long err
+datastore ds0
+ds0 = create datastore
+ds0.dataobject = 'dw_sj_message'
+ds0.settransobject(sqlca)
+err=ds0.retrieve(1,when)
+if ds0.rowcount() = 0 then
+	fx_log_file('Error! Procedure sj_message with params 1,' + string(when) + ' returned no values!!!',0)
+end if 	
+if ds0.rowcount() >= 1 then
+	fx_log_file(ds0.object.col1[1],1)
+end if 	
+if ds0.rowcount() >= 2 then
+	fx_log_file(ds0.object.col1[2],1)
+end if 	
+return 0
+end function
+
